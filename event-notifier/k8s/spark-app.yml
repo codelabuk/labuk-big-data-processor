@@ -8,7 +8,7 @@ spec:
   mode: cluster
   image: event-notifier:latest
   imagePullPolicy: Never
-  mainClass: org.codelabuk.EventNotifierApplication
+  mainClass: org.codelabuk.EventNotificationApplication
   mainApplicationFile: "local:///opt/spark/app/event-notifier.jar"
   sparkVersion: "3.4.0"
   restartPolicy:
@@ -16,11 +16,12 @@ spec:
   driver:
     cores: 1
     memory: "1g"
-    serviceAccount: spark
+    serviceAccount: spark-driver
     env:
       - name: SPRING_PROFILES_ACTIVE
         value: dev
   executor:
+    serviceAccount: spark-driver
     cores: 1
     instances: 1
     memory: "1g"
