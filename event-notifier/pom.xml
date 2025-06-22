@@ -64,4 +64,35 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.4.0</version>
+                <configuration>
+                    <to>
+                        <image>event-notifier:latest</image>
+                    </to>
+                    <container>
+                        <mainClass>org.codelabuk.EventNotifierApplication</mainClass>
+                        <args>
+                            <arg>--spring.profiles.active=dev</arg>
+                        </args>
+                    </container>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>docker-build</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>dockerBuild</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
 </project>

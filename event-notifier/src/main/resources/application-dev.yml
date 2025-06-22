@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres-postgresql.labuk-event-tool.svc.cluster.local:5432/labukdb
+    username: labukuser
+    password: labukpass
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: auto
+
+notification:
+  kafka:
+    bootstrap-server: kafka.labuk-event-tool.svc.cluster.local:9092
+    topic: notification-topic
+    starting-offsets: latest

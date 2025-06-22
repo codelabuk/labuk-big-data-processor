@@ -1,0 +1,26 @@
+apiVersion: sparkoperator.k8s.io/v1beta2
+kind: SparkApplication
+metadata:
+  name: notification-processor
+  namespace: labuk-spark-jobs
+spec:
+  type: Java
+  mode: cluster
+  image: event-notifier:latest
+  imagePullPolicy: Never
+  mainClass: org.codelabuk.EventNotifierApplication
+  mainApplicationFile: "local:///opt/spark/app/event-notifier.jar"
+  sparkVersion: "3.4.0"
+  restartPolicy:
+    type: Never
+  driver:
+    cores: 1
+    memory: "1g"
+    serviceAccount: spark
+    env:
+      - name: SPRING_PROFILES_ACTIVE
+        value: dev
+  executor:
+    cores: 1
+    instances: 1
+    memory: "1g"
