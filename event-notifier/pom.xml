@@ -57,5 +57,11 @@
             <artifactId>spark-sql-kafka-0-10_${scala.binary.version}</artifactId>
             <version>3.4.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.36</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </project>
