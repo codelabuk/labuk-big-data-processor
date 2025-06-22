@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.apache.spark.api.java.function.MapFunction;
 
 @Service
-public class KakfaStreamReader<T> {
+public class KafkaStreamReader<T> {
 
     @Autowired
     private NotificationKafkaConfig kafkaConfig;

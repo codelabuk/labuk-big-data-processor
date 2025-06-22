@@ -7,7 +7,7 @@ import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.streaming.StreamingQuery;
 import org.codelabuk.jpa.NotificationRepository;
 import org.codelabuk.model.NotificationEvent;
-import org.codelabuk.service.KakfaStreamReader;
+import org.codelabuk.service.KafkaStreamReader;
 import org.codelabuk.service.NotificationWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -20,7 +20,7 @@ public class EventNotificationProcessor implements CommandLineRunner {
     private SparkSession sparkSession;
 
     @Autowired
-    private KakfaStreamReader<NotificationEvent> reader;
+    private KafkaStreamReader<NotificationEvent> reader;
 
     @Autowired
     private NotificationRepository notificationRepository;
